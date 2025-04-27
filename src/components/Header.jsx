@@ -5,7 +5,7 @@ const Header = () => {
   const { loading } = useContext(AppContext);
   console.log(loading);
   return (
-    <div className=" text-3xl font-bold black h-[40px] w-[100vw] border-b-gray-400 border-b-2 flex justify-center items-center bg-white fixed top-0">
+    <div className=" text-3xl font-bold black h-[40px] w-[100%] border-b-gray-400 border-b-2 flex justify-center items-center bg-white fixed top-0">
       CODEHELP BLOGS
     </div>
   );

@@ -7,10 +7,17 @@ export const AppProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
-  async function fetchPosts(page = 1) {
+  async function fetchPosts(page = 1, tag = null, category = null) {
     setLoading(true);
+    let url = `${baseUrl}?page=${page}`;
+    if (tag) {
+      url += `&tag=${tag}`;
+    }
+    if (category) {
+      url += `&category=${category}`;
+    }
     try {
-      const response = await fetch(`${baseUrl}?page=${page}`);
+      const response = await fetch(url);
       const data = await response.json();
       console.log(data);
       setPosts(data.posts);
